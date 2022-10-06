@@ -75,6 +75,7 @@ return require('packer').startup({
     use { "folke/zen-mode.nvim", config = 'require("zen-mode-config")' }
     use { "folke/twilight.nvim", config = "require('twilight-config')" }
     use { 'andweeb/presence.nvim', config = "require('presence-config')" }
+    use {'fatih/vim-go'}
     -- Debugging
     use {
       "mfussenegger/nvim-dap",
