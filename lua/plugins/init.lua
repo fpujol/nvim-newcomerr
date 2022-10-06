@@ -81,9 +81,9 @@ return require('packer').startup({
       opt = true,
       event = "BufReadPre",
       module = { "dap" },
-      wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
+      wants = { "nvim-dap-virtual-text", "nvim-dap-ui", "nvim-dap-python","nvim-dap-go", "which-key.nvim" },
       requires = {
-        "Pocco81/DAPInstall.nvim",
+        --"Pocco81/DAPInstall.nvim",
         "theHamsta/nvim-dap-virtual-text",
         "rcarriga/nvim-dap-ui",
           "mfussenegger/nvim-dap-python",

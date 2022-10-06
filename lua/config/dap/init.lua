@@ -1,10 +1,10 @@
 local M = {}
 
 local function configure()
-  local dap_install = require "dap-install"
-  dap_install.setup {
-    installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
-  }
+--  local dap_install = require "dap-install"
+--  dap_install.setup {
+--    installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
+--  }
 
   local dap_breakpoint = {
     error = {
@@ -54,6 +54,7 @@ local function configure_debuggers()
   --require("config.dap.lua").setup()
   --require("config.dap.python").setup()
   --require("config.dap.rust").setup()
+  --require("config.dap.sharp").setup()
   require("config.dap.go").setup()
 end
 
@@ -61,7 +62,7 @@ function M.setup()
   configure() -- Configuration
   configure_exts() -- Extensions
   configure_debuggers() -- Debugger
-  require("config.dap.keymaps").setup() -- Keymaps
+  --require("config.dap.keymaps").setup() -- Keymaps
 end
 
 configure_debuggers()
