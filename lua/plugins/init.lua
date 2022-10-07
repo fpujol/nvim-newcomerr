@@ -76,6 +76,27 @@ return require('packer').startup({
     use { "folke/twilight.nvim", config = "require('twilight-config')" }
     use { 'andweeb/presence.nvim', config = "require('presence-config')" }
     use {'fatih/vim-go'}
+    -- Task runner
+    use {
+      "stevearc/overseer.nvim",
+      opt = true,
+      cmd = {
+        "OverseerToggle",
+        "OverseerOpen",
+        "OverseerRun",
+        "OverseerBuild",
+        "OverseerClose",
+        "OverseerLoadBundle",
+        "OverseerSaveBundle",
+        "OverseerDeleteBundle",
+        "OverseerRunCmd",
+        "OverseerQuickAction",
+        "OverseerTaskAction",
+      },
+      config = function()
+        require("overseer").setup()
+      end,
+    }
     -- Debugging
     use {
       "mfussenegger/nvim-dap",
@@ -96,7 +117,47 @@ return require('packer').startup({
           require("config.dap").setup()
         end,
       }
-    end,
+       -- Test
+    use {
+      "nvim-neotest/neotest",
+      opt = true,
+      wants = {
+        "plenary.nvim",
+        "nvim-treesitter",
+        "neotest-python",
+        "neotest-plenary",
+        "neotest-go",
+        "neotest-jest",
+        "neotest-vim-test",
+        "neotest-rust",
+        "vim-test",
+        "overseer.nvim",
+      },
+      requires = {
+        "vim-test/vim-test",
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-neotest/neotest-python",
+        "nvim-neotest/neotest-plenary",
+        "nvim-neotest/neotest-go",
+        "haydenmeade/neotest-jest",
+        "nvim-neotest/neotest-vim-test",
+        "rouge8/neotest-rust",
+      },
+      module = { "neotest", "neotest.async" },
+      cmd = {
+        "TestNearest",
+        "TestFile",
+        "TestSuite",
+        "TestLast",
+        "TestVisit",
+      },
+      config = function()
+        require("config.neotest").setup()
+      end,
+      disable = false,
+    }
+         end,
     config = {
       display = {
         open_fn = function()

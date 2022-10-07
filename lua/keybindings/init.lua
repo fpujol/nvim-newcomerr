@@ -18,7 +18,7 @@ map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)
 map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>",
     {noremap = true, silent = true})
 
---Debugg
+--Debug
 map("n", "<F4>", ":lua require('dapui').toggle()<CR>" , {noremap = true, silent = false})
 map("n", "<F5>", ":lua require('dap').toggle_breakpoint()<CR>", {noremap = true, silent = false})
 map("n", "<F9>", ":lua require('dap').continue()<CR>", {noremap = true, silent = false})
